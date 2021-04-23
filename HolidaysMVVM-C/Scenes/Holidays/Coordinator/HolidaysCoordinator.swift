@@ -18,9 +18,17 @@ class HolidaysCoordinator: ReactiveCoordinator<Void> {
 	}
 	
 	override func start() -> Observable<Void> {
+
 		let viewController = rootViewController as! HolidaysViewController
 		let viewModel = HolidaysViewModel()
 		viewController.viewModel = viewModel
+		
+		viewModel.selectedHoliday
+			.flatMap({ [unowned self] (holidayViewModel) in
+			self.coordinateToHolidayDetail(with: holidayViewModel)
+			})
+			.subscribe()
+			.disposed(by: disposeBag)
 		
 		viewModel.chooseCountry
 			.flatMap { [weak self] _ -> Observable<String?> in
@@ -45,5 +53,12 @@ class HolidaysCoordinator: ReactiveCoordinator<Void> {
 				case .cancel: return nil
 				}
 		}
+	}
+	
+	private func coordinateToHolidayDetail(with holidayViewModel: HolidayViewModel) -> Observable<Void> {
+		let holidayDetailCoordinator = HolidayDetailCoordinator(rootViewController: rootViewController)
+		holidayDetailCoordinator.viewModel = holidayViewModel
+		return coordinate(to: holidayDetailCoordinator)
+			.map { _ in () }
 	}
 }

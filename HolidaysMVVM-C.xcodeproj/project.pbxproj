@@ -29,6 +29,8 @@
 		413EC294263372AD00C99FCE /* ChooseCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EC293263372AD00C99FCE /* ChooseCountryViewModel.swift */; };
 		413EC2972633789D00C99FCE /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EC2962633789D00C99FCE /* CountryViewModel.swift */; };
 		413EC29A263378CE00C99FCE /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EC299263378CE00C99FCE /* CountryTableViewCell.swift */; };
+		413EC2A326338C0E00C99FCE /* HolidayDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EC2A226338C0E00C99FCE /* HolidayDetailCoordinator.swift */; };
+		413EC2A726338CA800C99FCE /* HolidayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EC2A626338CA800C99FCE /* HolidayDetailViewController.swift */; };
 		96B1EC9BE3533D87D1DD578A /* Pods_HolidaysMVVM_C.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896C42574D1D7D0B68FEFBA5 /* Pods_HolidaysMVVM_C.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		413EC293263372AD00C99FCE /* ChooseCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewModel.swift; sourceTree = "<group>"; };
 		413EC2962633789D00C99FCE /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		413EC299263378CE00C99FCE /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		413EC2A226338C0E00C99FCE /* HolidayDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetailCoordinator.swift; sourceTree = "<group>"; };
+		413EC2A626338CA800C99FCE /* HolidayDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetailViewController.swift; sourceTree = "<group>"; };
 		4F1DF4900A15F5712286E818 /* Pods-HolidaysMVVM-C.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HolidaysMVVM-C.debug.xcconfig"; path = "Target Support Files/Pods-HolidaysMVVM-C/Pods-HolidaysMVVM-C.debug.xcconfig"; sourceTree = "<group>"; };
 		7CF9FE560EDCD4C7BBECB427 /* Pods-HolidaysMVVM-C.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HolidaysMVVM-C.release.xcconfig"; path = "Target Support Files/Pods-HolidaysMVVM-C/Pods-HolidaysMVVM-C.release.xcconfig"; sourceTree = "<group>"; };
 		896C42574D1D7D0B68FEFBA5 /* Pods_HolidaysMVVM_C.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HolidaysMVVM_C.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				413EC2532632901B00C99FCE /* Holidays */,
+				413EC29D26338B9300C99FCE /* Holiday Detail */,
 				413EC2892633717C00C99FCE /* Choose Country */,
 			);
 			path = Scenes;
@@ -255,6 +260,31 @@
 			isa = PBXGroup;
 			children = (
 				413EC28D263371BA00C99FCE /* ChooseCountryCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		413EC29D26338B9300C99FCE /* Holiday Detail */ = {
+			isa = PBXGroup;
+			children = (
+				413EC2A126338BDB00C99FCE /* Coordinator */,
+				413EC29F26338BB600C99FCE /* View */,
+			);
+			path = "Holiday Detail";
+			sourceTree = "<group>";
+		};
+		413EC29F26338BB600C99FCE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				413EC2A626338CA800C99FCE /* HolidayDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		413EC2A126338BDB00C99FCE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				413EC2A226338C0E00C99FCE /* HolidayDetailCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -386,8 +416,10 @@
 				413EC25A2632907700C99FCE /* HolidaysCoordinator.swift in Sources */,
 				413EC29A263378CE00C99FCE /* CountryTableViewCell.swift in Sources */,
 				413EC22B26328C8E00C99FCE /* AppDelegate.swift in Sources */,
+				413EC2A726338CA800C99FCE /* HolidayDetailViewController.swift in Sources */,
 				413EC2712632946D00C99FCE /* APIManager.swift in Sources */,
 				413EC27A2632949100C99FCE /* CountriesService.swift in Sources */,
+				413EC2A326338C0E00C99FCE /* HolidayDetailCoordinator.swift in Sources */,
 				413EC2702632946D00C99FCE /* APIClient.swift in Sources */,
 				413EC27B2632949100C99FCE /* HolidaysService.swift in Sources */,
 				413EC2812632963100C99FCE /* HolidayTableViewCell.swift in Sources */,
