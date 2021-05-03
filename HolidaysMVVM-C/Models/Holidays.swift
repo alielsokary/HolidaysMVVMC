@@ -6,30 +6,36 @@
 //
 //
 
-import ObjectMapper
+import Foundation
 
-struct Holidays: Mappable {
-    var holidays: [Holiday]?
-    
-    init?(map: Map) {}
-    
-    mutating func mapping(map: Map) {
-        holidays <- map["holidays"]
-    }
+// MARK: - Holidays
+struct Holidays: Codable {
+	let status: Int?
+	let warning: String?
+	let holidays: [Holiday]?
 }
 
-struct Holiday: Mappable {
-    var name: String?
-    var date: String?
-    var country: String?
-    var `public`: Bool?
-    
-    init?(map: Map) {}
-    
-    mutating func mapping(map: Map) {
-        name     <- map["name"]
-        date     <- map["date"]
-        country  <- map["country"]
-        `public` <- map["public"]
-    }
+// MARK: - Holiday
+struct Holiday: Codable {
+	let name, date, observed: String?
+	let isPublic: Bool?
+	let country: String?
+	let uuid: String?
+	let weekday: Weekday?
+
+	enum CodingKeys: String, CodingKey {
+		case name, date, observed
+		case isPublic = "public"
+		case country, uuid, weekday
+	}
+}
+
+// MARK: - Weekday
+struct Weekday: Codable {
+	let date, observed: DateClass?
+}
+
+// MARK: - DateClass
+struct DateClass: Codable {
+	let name, numeric: String?
 }

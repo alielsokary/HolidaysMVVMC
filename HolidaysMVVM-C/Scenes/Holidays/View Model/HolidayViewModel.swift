@@ -22,7 +22,7 @@ struct HolidayViewModel {
         self.title = holiday.name!
         self.date = holiday.date!
         self.country = holiday.country!
-        self.isPublic = holiday.public!
+        self.isPublic = holiday.isPublic!
     }
     
 }

@@ -1,32 +1,24 @@
 PODS:
-  - Alamofire (4.9.0)
-  - Differentiator (4.0.1)
-  - ObjectMapper (4.2.0)
+  - Alamofire (5.4.3)
+  - AlamofireNetworkActivityLogger (3.4.0):
+    - Alamofire (~> 5.4.0)
+  - Differentiator (5.0.0)
   - PKHUD (5.3.0)
-  - ReactiveCoordinator (4.0.0):
-    - RxSwift
-  - RxAlamofire (5.1.0):
-    - RxAlamofire/Core (= 5.1.0)
-  - RxAlamofire/Core (5.1.0):
-    - Alamofire (~> 4.8)
-    - RxSwift (~> 5.0)
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxDataSources (4.0.1):
-    - Differentiator (~> 4.0)
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.2)
+  - RxCocoa (6.1.0):
+    - RxRelay (= 6.1.0)
+    - RxSwift (= 6.1.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxSwift (6.1.0)
 
 DEPENDENCIES:
-  - Alamofire (= 4.9)
-  - ObjectMapper
+  - Alamofire
+  - AlamofireNetworkActivityLogger (~> 3.4)
   - PKHUD
-  - ReactiveCoordinator (= 4.0.0)
-  - RxAlamofire
   - RxCocoa
   - RxDataSources
   - RxSwift
@@ -34,28 +26,24 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AlamofireNetworkActivityLogger
     - Differentiator
-    - ObjectMapper
     - PKHUD
-    - ReactiveCoordinator
-    - RxAlamofire
     - RxCocoa
     - RxDataSources
     - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
-  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
-  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AlamofireNetworkActivityLogger: 162ab8aee00e6267a4304d7cc134e13ccfe3bcc5
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
-  ReactiveCoordinator: 411fce7da599bbbb56d5ad9f3abe1e532e58a64f
-  RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
 
-PODFILE CHECKSUM: 5b58c5aa364d1a7418da8bac101ffc12c24ce034
+PODFILE CHECKSUM: 8e9aeeb2be13a712fb34dffec91a5f01ea488c77
 
 COCOAPODS: 1.10.1

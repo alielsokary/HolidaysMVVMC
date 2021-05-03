@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import AlamofireNetworkActivityLogger
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
 		window = UIWindow()
+		
+		NetworkActivityLogger.shared.startLogging()
+		NetworkActivityLogger.shared.level = .debug
 		
 		appCoordinator = AppCoordinator(window: window!)
 		appCoordinator.start()

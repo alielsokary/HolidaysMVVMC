@@ -7,9 +7,8 @@
 //
 
 import RxSwift
-import ReactiveCoordinator
 
-class HolidaysCoordinator: ReactiveCoordinator<Void> {
+class HolidaysCoordinator: BaseCoordinator<Void> {
 	
 	let rootViewController: UIViewController
 	
@@ -17,10 +16,12 @@ class HolidaysCoordinator: ReactiveCoordinator<Void> {
 		self.rootViewController = rootViewController
 	}
 	
+	let service = HolidaysServiceImpl()
+	
 	override func start() -> Observable<Void> {
 
 		let viewController = rootViewController as! HolidaysViewController
-		let viewModel = HolidaysViewModel()
+		let viewModel = HolidaysViewModel(service: service)
 		viewController.viewModel = viewModel
 		
 		viewModel.selectedHoliday

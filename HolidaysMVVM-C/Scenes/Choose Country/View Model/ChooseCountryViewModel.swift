@@ -23,29 +23,26 @@ final class ChooseCountryViewModel {
 	let fetchedCountries = BehaviorSubject<[CountryViewModel]>(value: [])
 	let filteredCountries = BehaviorSubject<[CountryViewModel]>(value: [])
 	
+	let service: CountriesService
+	
+	init(service: CountriesService) {
+		self.service = service
+	}
+	
 	// MARK: - API Call
-	func fetchCountries(onError: @escaping (String) -> ()) {
-		
+	func fetchCountries() {
 		self.isLoading.onNext(true)
-		CountriesService.shared.getCountries(success: { [weak self] (code, countries) in
-			guard let `self` = self else { return }
-			
-			self.isLoading.onNext(false)
-			
-			let countryItems = countries.countries!.compactMap {
-				CountryViewModel(country: $0)
-			}
-			
-			self.fetchedCountries.onNext(countryItems)
-			self.filteredCountries.onNext(countryItems)
-			
-			self.bindSearchToModel()
-		}) { [weak self] (error) in
-			guard let `self` = self else { return }
-			
-			self.isLoading.onNext(false)
-			onError(error)
-		}
+		service.getCountries()
+			.subscribe { [weak self] countries in
+				self?.isLoading.onNext(false)
+				let countryItems = countries.element?.countries?.compactMap {
+					CountryViewModel(country: $0)
+				}
+				self?.fetchedCountries.onNext(countryItems ?? [])
+				self?.filteredCountries.onNext(countryItems ?? [])
+
+				self?.bindSearchToModel()
+			}.disposed(by: disposeBag)
 	}
 	
 	func bindSearchToModel() {

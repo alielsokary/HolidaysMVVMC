@@ -8,12 +8,9 @@ target 'HolidaysMVVM-C' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
-  pod 'ReactiveCoordinator', '4.0.0'
   
-  pod 'ObjectMapper'
-  pod 'Alamofire', '4.9'
-  pod 'RxAlamofire'
-  
+  pod 'Alamofire'
+	pod 'AlamofireNetworkActivityLogger', '~> 3.4'
   pod 'PKHUD'
 
   # Pods for HolidaysMVVM-C

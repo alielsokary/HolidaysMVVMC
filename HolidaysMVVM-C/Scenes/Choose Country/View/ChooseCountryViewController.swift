@@ -23,9 +23,7 @@ class ChooseCountryViewController: UIViewController {
 		bindCloseItem()
 		bindHUD()
 		
-		viewModel.fetchCountries { [weak self] (errorMessage) in
-			self?.showMessage(errorMessage)
-		}
+		viewModel.fetchCountries()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +66,7 @@ class ChooseCountryViewController: UIViewController {
 extension ChooseCountryViewController {
 	func bindTableView() {
 		viewModel.filteredCountries
+			.filter{ !$0.isEmpty }
 			.bind(to: tableView.rx.items(cellIdentifier: "CountryTableViewCell", cellType: CountryTableViewCell.self)) { (index, viewModel, cell) in
 				cell.viewModel = viewModel
 			}

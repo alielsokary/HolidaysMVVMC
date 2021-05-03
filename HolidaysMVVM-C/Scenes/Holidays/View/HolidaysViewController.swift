@@ -27,9 +27,7 @@ class HolidaysViewController: UIViewController {
 		bindHUD()
 		bindVisibilityState()
 		
-		viewModel.fetchHolidays{ (errorMessage) in
-			self.showMessage(errorMessage)
-		}
+		viewModel.fetchHolidays()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +73,7 @@ extension HolidaysViewController {
 	func bindTableView() {
 
 		viewModel.holidays
+			.filter { !$0.isEmpty }
 			.bind(to: tableView.rx.items(cellIdentifier: "HolidayTableViewCell", cellType: HolidayTableViewCell.self)) { index, viewModel, cell in
 				cell.viewModel = viewModel
 			}

@@ -7,16 +7,16 @@
 //
 
 import RxSwift
-import ReactiveCoordinator
 
 enum ChooseCountryCoordinationResult {
 	case country(String)
 	case cancel
 }
 
-class ChooseCountryCoordinator: ReactiveCoordinator<ChooseCountryCoordinationResult> {
+class ChooseCountryCoordinator: BaseCoordinator<ChooseCountryCoordinationResult> {
 	
 	let rootViewController: UIViewController
+	let service = CountriesServiceImpl()
 	
 	init(rootViewController: UIViewController) {
 		self.rootViewController = rootViewController
@@ -27,7 +27,7 @@ class ChooseCountryCoordinator: ReactiveCoordinator<ChooseCountryCoordinationRes
 		
 		let navigationController = UINavigationController(rootViewController: viewController)
 		
-		let viewModel = ChooseCountryViewModel()
+		let viewModel = ChooseCountryViewModel(service: service)
 		viewController.viewModel = viewModel
 		let country = viewModel.selectedCountry.map { CoordinationResult.country($0)}
 		let cancel = viewModel.didClose.map { _ in
